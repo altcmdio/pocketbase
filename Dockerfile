@@ -3,13 +3,13 @@
 
 # Fetch a pre-built pocketbase binary.
 FROM alpine:latest AS pocketbase
-ARG PB_VERSION=0.21.1
+ARG PB_VERSION=0.21.3
 ARG PB_ARCH=linux_arm64
 RUN apk add --no-cache --purge \
     unzip \
     ca-certificates
 ADD https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_${PB_ARCH}.zip /tmp/pb.zip
-RUN unzip /tmp/pb.zip -d /pb/ 
+RUN unzip /tmp/pb.zip -d /pb/
 
 
 # Generate a version of caddy with digitalocean dns support.
